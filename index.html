@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edil-Cema S.r.l. | Costruiamo Valore, Dal 1985.</title>
+    <meta name="description" content="Edil-Cema è la tua impresa di fiducia per costruzioni, ristrutturazioni e manutenzioni. Offriamo soluzioni chiavi in mano con oltre 35 anni di esperienza e certificazione SOA.">
+    <meta name="keywords" content="impresa edile, costruzioni, ristrutturazioni, edilizia, manutenzione edifici, certificazione soa, edilcema">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --cantiere-blue: #003366;
+            --pietra-serena: #EAEAEA;
+            --accent-acciaio: #00AEEF;
+            --text-grafite: #333333;
+            --white: #FFFFFF;
+            --light-background: #F8F9FA;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            color: var(--text-grafite);
+            background-color: var(--white);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            cursor: none;
+        }
+        
+        body.nav-active {
+            overflow: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--cantiere-blue);
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.75rem; }
+        p { margin-bottom: 1rem; }
+
+        a {
+            color: var(--accent-acciaio);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cantiere-blue);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-angled::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: inherit;
+            transform: skewY(-3deg);
+            transform-origin: top left;
+            z-index: -1;
+        }
+        
+        .section-angled.bottom::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: inherit;
+            transform: skewY(-3deg);
+            transform-origin: bottom left;
+            z-index: -1;
+        }
+        
+        .blueprint-bg {
+            background-color: var(--light-background);
+            background-image:
+                linear-gradient(rgba(0, 51, 102, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 51, 102, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-acciaio);
+            color: var(--white);
+            border-color: var(--accent-acciaio);
+        }
+
+        .btn-primary:hover {
+            background-color: #009ad8;
+            border-color: #009ad8;
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 174, 239, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--cantiere-blue);
+            border-color: var(--cantiere-blue);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--cantiere-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
+        }
+
+        /* --- Header --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: var(--cantiere-blue);
+        }
+
+        .logo span {
+            color: var(--accent-acciaio);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-grafite);
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-acciaio);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Mobile Nav --- */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 2rem;
+            height: 2rem;
+            background: transparent;
+            border: none;
+            z-index: 1001;
+        }
+        
+        .hamburger span {
+            width: 2rem;
+            height: 3px;
+            background: var(--cantiere-blue);
+            border-radius: 5px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+        
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-image: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: left;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .hero .sub-headline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        
+        .hero .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero .cta-buttons .btn-primary {
+            background-color: var(--accent-acciaio);
+            border-color: var(--accent-acciaio);
+        }
+        .hero .cta-buttons .btn-secondary {
+            color: var(--white);
+            border-color: var(--white);
+        }
+        .hero .cta-buttons .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--cantiere-blue);
+        }
+
+
+        /* --- Trust Bar --- */
+        .trust-bar {
+            background-color: var(--light-background);
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--pietra-serena);
+        }
+        .trust-bar .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .trust-item {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--cantiere-blue);
+        }
+        .trust-item i {
+            font-size: 2rem;
+            color: var(--accent-acciaio);
+            margin-bottom: 0.5rem;
+        }
+        .trust-item span {
+            display: block;
+            font-size: 1rem;
+        }
+
+        /* --- Services Section --- */
+        .services {
+            text-align: center;
+        }
+        .section-title {
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+            font-size: 1.1rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        .service-card .icon {
+            font-size: 3rem;
+            color: var(--accent-acciaio);
+            margin-bottom: 1.5rem;
+        }
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+        .service-card a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        /* --- Projects Section --- */
+        .projects {
+            background-color: var(--light-background);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            color: var(--white);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        .project-overlay h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+        .project-overlay p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: var(--pietra-serena);
+            margin-bottom: 0;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.1s;
+        }
+        .project-card:hover .project-overlay h4,
+        .project-card:hover .project-overlay p {
+            transform: translateY(0);
+        }
+        .projects .cta-container {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        /* --- About Teaser Section --- */
+        .about-teaser .container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        .about-image {
+            flex: 1;
+            max-width: 500px;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .about-content {
+            flex: 1;
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials {
+            background-color: var(--cantiere-blue);
+            color: var(--white);
+        }
+        .testimonials h2, .testimonials .section-subtitle {
+            color: var(--white);
+        }
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .testimonial-author {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        .testimonial-author span {
+            display: block;
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: var(--pietra-serena);
+        }
+
+        /* --- Final CTA Section --- */
+        .contact {
+            background-color: var(--pietra-serena);
+        }
+        .contact .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .contact-info {
+           line-height: 2;
+        }
+        .contact-info h3 {
+           margin-bottom: 1.5rem;
+        }
+        .contact-info p {
+           margin-bottom: 0.5rem;
+        }
+        .contact-info i {
+           color: var(--accent-acciaio);
+           margin-right: 1rem;
+           width: 20px;
+           text-align: center;
+        }
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-acciaio);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--text-grafite);
+            color: var(--pietra-serena);
+            padding: 4rem 0 2rem 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .footer-col p, .footer-col a {
+            color: var(--pietra-serena);
+            font-size: 0.9rem;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+        .social-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--accent-acciaio);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        .footer-bottom a {
+            color: var(--accent-acciaio);
+        }
+
+        /* --- Animation --- */
+        [data-aos] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        [data-aos].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        [data-aos-delay="1"] { transition-delay: 0.1s; }
+        [data-aos-delay="2"] { transition-delay: 0.2s; }
+        [data-aos-delay="3"] { transition-delay: 0.3s; }
+        [data-aos-delay="4"] { transition-delay: 0.4s; }
+
+
+        /* --- Cursor --- */
+        .cursor, .cursor-trail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            border-radius: 50%;
+            z-index: 9999;
+        }
+
+        .cursor {
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-acciaio);
+            transition: transform 0.2s ease-out;
+        }
+
+        .cursor-trail {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--accent-acciaio);
+            transform: translate(-15px, -15px);
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+
+        .cursor.hovered {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+
+        .cursor-trail.hovered {
+            transform: scale(1.5) translate(-12.5px, -12.5px);
+            opacity: 0.5;
+            background-color: rgba(0, 174, 239, 0.2);
+        }
+
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--cantiere-blue);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2.5rem;
+                transform: translateX(100%);
+                transition: transform 0.4s ease-in-out;
+            }
+            .nav-links.active {
+                transform: translateX(0);
+            }
+            .nav-links a {
+                color: var(--white);
+                font-size: 1.5rem;
+            }
+            .hamburger {
+                display: flex;
+            }
+
+            .about-teaser .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-image { margin-bottom: 2rem; }
+            
+            .contact .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero { text-align: center; }
+            .hero-content { padding: 0 1rem; }
+            .hero .cta-buttons { justify-content: center; }
+            
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 { font-size: 2.2rem; }
+            .hero .sub-headline { font-size: 1.2rem; }
+            
+            .trust-bar .container {
+                flex-direction: column;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (pointer: coarse) {
+            .cursor, .cursor-trail {
+                display: none;
+            }
+             body {
+                cursor: auto;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="cursor"></div>
+    <div class="cursor-trail"></div>
+
+    <header class="header">
+        <div class="container">
+            <a href="#home" class="logo">Edil-Cema<span>.</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Chi Siamo</a></li>
+                    <li><a href="#services">Servizi</a></li>
+                    <li><a href="#projects">Progetti</a></li>
+                    <li><a href="#contact">Contatti</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 data-aos>Costruiamo Valore, Dal 1985.</h1>
+                    <p class="sub-headline" data-aos data-aos-delay="1">La tua impresa di fiducia per costruzioni e ristrutturazioni. Qualità, esperienza e soluzioni chiavi in mano per dare forma ai tuoi sogni.</p>
+                    <div class="cta-buttons" data-aos data-aos-delay="2">
+                        <a href="#projects" class="btn btn-primary">Scopri i Progetti</a>
+                        <a href="#contact" class="btn btn-secondary">Richiedi un Preventivo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-bar">
+            <div class="container">
+                <div class="trust-item" data-aos>
+                    <i class="fas fa-medal"></i>
+                    <span>35+ Anni di Esperienza</span>
+                </div>
+                <div class="trust-item" data-aos data-aos-delay="1">
+                    <i class="fas fa-hard-hat"></i>
+                    <span>Certificazione SOA OG1</span>
+                </div>
+                <div class="trust-item" data-aos data-aos-delay="2">
+                    <i class="fas fa-key"></i>
+                    <span>Soluzioni Chiavi in Mano</span>
+                </div>
+                <div class="trust-item" data-aos data-aos-delay="3">
+                    <i class="fas fa-users"></i>
+                    <span>Azienda Familiare</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section blueprint-bg">
+            <div class="container">
+                <div data-aos>
+                    <h2 class="section-title">Dalla Progettazione alla Consegna</h2>
+                    <p class="section-subtitle">Un unico interlocutore per ogni esigenza. Gestiamo ogni fase del tuo progetto con la massima professionalità, garantendo risultati eccellenti e rispetto dei tempi.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card" data-aos>
+                        <div class="icon"><i class="fas fa-building"></i></div>
+                        <h3>Nuove Costruzioni</h3>
+                        <p>Realizziamo edifici civili e industriali dalle fondamenta al tetto, utilizzando materiali di alta qualità e tecnologie all'avanguardia.</p>
+                        <a href="#">Scopri di più &rarr;</a>
+                    </div>
+                    <div class="service-card" data-aos data-aos-delay="1">
+                        <div class="icon"><i class="fas fa-home"></i></div>
+                        <h3>Ristrutturazioni</h3>
+                        <p>Trasformiamo e valorizziamo immobili esistenti, curando ogni dettaglio per creare spazi moderni, funzionali e confortevoli.</p>
+                        <a href="#">Scopri di più &rarr;</a>
+                    </div>
+                    <div class="service-card" data-aos data-aos-delay="2">
+                        <div class="icon"><i class="fas fa-tools"></i></div>
+                        <h3>Manutenzione Edifici</h3>
+                        <p>Offriamo servizi di manutenzione programmata e straordinaria per condomini e aziende, assicurando efficienza e sicurezza nel tempo.</p>
+                        <a href="#">Scopri di più &rarr;</a>
+                    </div>
+                    <div class="service-card" data-aos data-aos-delay="3">
+                        <div class="icon"><i class="fas fa-layer-group"></i></div>
+                        <h3>Lavori Speciali</h3>
+                        <p>Competenza in isolamenti termici, coperture, opere in cartongesso e rivestimenti a cappotto per migliorare comfort e efficienza energetica.</p>
+                        <a href="#">Scopri di più &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <div data-aos>
+                    <h2 class="section-title">La Qualità del Nostro Lavoro</h2>
+                    <p class="section-subtitle">È la nostra migliore garanzia. Esplora una selezione dei nostri progetti completati, testimonianza del nostro impegno per l'eccellenza.</p>
+                </div>
+                <div class="projects-grid">
+                    <a href="#" class="project-card" data-aos>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Progetto Villa Moderna">
+                        <div class="project-overlay">
+                            <h4>Villa Moderna Residenziale</h4>
+                            <p>Nuova Costruzione</p>
+                        </div>
+                    </a>
+                    <a href="#" class="project-card" data-aos data-aos-delay="1">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Progetto Ristrutturazione Appartamento">
+                        <div class="project-overlay">
+                            <h4>Ristrutturazione Appartamento</h4>
+                            <p>Interni di Lusso</p>
+                        </div>
+                    </a>
+                    <a href="#" class="project-card" data-aos data-aos-delay="2">
+                        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Progetto Complesso Residenziale">
+                        <div class="project-overlay">
+                            <h4>Complesso Residenziale</h4>
+                            <p>Edilizia Civile</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="cta-container" data-aos>
+                    <a href="#" class="btn btn-primary">Vedi Tutti i Progetti</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section section-angled blueprint-bg">
+            <div class="container">
+                <div class="about-teaser">
+                    <div class="container">
+                        <div class="about-image" data-aos>
+                            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2232&q=80" alt="Il team di Edil-Cema">
+                        </div>
+                        <div class="about-content" data-aos data-aos-delay="1">
+                            <h2 class="section-title">Una Storia di Passione e Competenza</h2>
+                            <p>Fondata nel 1985 da Ceraulo Mattia, Edil-Cema nasce dalla passione per l'edilizia e dall'impegno a costruire non solo edifici, ma relazioni di fiducia durature. Siamo un'azienda a conduzione familiare che unisce la tradizione artigianale con le più moderne tecniche costruttive.</p>
+                            <p>La nostra filosofia si basa su tre pilastri: qualità dei materiali, sicurezza in cantiere e massima soddisfazione del cliente. Ogni progetto è una nuova sfida che affrontiamo con la stessa dedizione del primo giorno.</p>
+                            <a href="#" class="btn btn-secondary">Scopri la Nostra Storia</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="testimonials" class="section testimonials">
+            <div class="container">
+                 <div data-aos>
+                    <h2 class="section-title">La Fiducia dei Nostri Clienti</h2>
+                    <p class="section-subtitle">Le loro parole sono la prova tangibile della nostra dedizione e professionalità.</p>
+                </div>
+                <div class="testimonial-card" data-aos>
+                    <p class="testimonial-text">"Professionalità, puntualità e grande attenzione alle nostre esigenze. Edil-Cema ha trasformato la nostra vecchia casa nella dimora dei nostri sogni. Un team eccezionale, li raccomandiamo vivamente!"</p>
+                    <div class="testimonial-author">
+                        Mario Rossi
+                        <span>Cliente, Ristrutturazione Villa</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="contact" class="section contact">
+             <div class="container">
+                <div class="contact-info" data-aos>
+                    <h2 class="section-title">Pronto a Realizzare il Tuo Progetto?</h2>
+                    <p class="section-subtitle" style="margin-left: 0; text-align: left;">Contattaci oggi per una consulenza e un preventivo senza impegno. Insieme, daremo forma alle tue idee.</p>
+                     <h3>I nostri contatti:</h3>
+                     <p><i class="fas fa-map-marker-alt"></i> Via Esempio, 123 - 20100 Milano (MI)</p>
+                     <p><i class="fas fa-phone"></i> <a href="tel:+390123456789">+39 0123 456789</a></p>
+                     <p><i class="fas fa-envelope"></i> <a href="mailto:info@edilcema.it">info@edilcema.it</a></p>
+                </div>
+                <form class="contact-form" data-aos data-aos-delay="1">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Il tuo nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="La tua email" required>
+                    </div>
+                     <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Il tuo telefono">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" placeholder="Il tuo messaggio" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Invia Richiesta</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Edil-Cema S.r.l.</h4>
+                    <p>Costruiamo valore, dal 1985. Competenza e affidabilità al servizio dei tuoi progetti edili.</p>
+                    <p>P.IVA 01234567890</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Link Utili</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Chi Siamo</a></li>
+                        <li><a href="#services">Servizi</a></li>
+                        <li><a href="#projects">Progetti</a></li>
+                        <li><a href="#contact">Contatti</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h4>Certificazioni</h4>
+                    <p>Siamo orgogliosi di possedere la certificazione SOA OG1 Class. II, che attesta la nostra qualifica per l'esecuzione di lavori pubblici.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Seguici</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 Edil-Cema S.r.l. Tutti i diritti riservati. Design by <a href="#" target="_blank" rel="noopener">AI Developer</a>.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Sticky Header ---
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // --- Mobile Navigation ---
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const body = document.querySelector('body');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('active');
+                body.classList.toggle('nav-active');
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('open');
+                    navLinks.classList.remove('active');
+                    body.classList.remove('nav-active');
+                });
+            });
+
+            // --- Scroll Reveal Animation (Intersection Observer) ---
+            const aosElements = document.querySelectorAll('[data-aos]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            aosElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // --- Custom Cursor ---
+            const cursor = document.querySelector('.cursor');
+            const cursorTrail = document.querySelector('.cursor-trail');
+            const interactiveElements = document.querySelectorAll('a, button, input, textarea, .project-card');
+
+            let trailX = 0, trailY = 0;
+            let mouseX = 0, mouseY = 0;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            function animateCursor() {
+                cursor.style.transform = `translate(${mouseX - 5}px, ${mouseY - 5}px)`;
+                
+                const dx = mouseX - trailX;
+                const dy = mouseY - trailY;
+                
+                trailX += dx * 0.2;
+                trailY += dy * 0.2;
+
+                cursorTrail.style.transform = `translate(${trailX - 20}px, ${trailY - 20}px)`;
+
+                requestAnimationFrame(animateCursor);
+            }
+            
+            animateCursor();
+            
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hovered');
+                    cursorTrail.classList.add('hovered');
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hovered');
+                    cursorTrail.classList.remove('hovered');
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
